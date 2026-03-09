@@ -267,6 +267,14 @@ def plot_ifd(df, ordered_cols, labels, bases):
 st.set_page_config(page_title="IFD Plotter", layout="centered")
 st.title("IFD Plotter (log–log) v2")
 st.caption("Upload your IFD Excel file (or suitable CSV). AEP curves (e.g. 10%, 10%CC) will be matched in color. Legend labels are compact.")
+st.caption("Download template for data here")
+with open("IFD_template.xlsx", "rb") as file:
+    st.download_button(
+        label="Download Excel Template",
+        data=file,
+        file_name="IFD_template.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 uploaded = st.file_uploader("Upload your IFD_data.xlsx or .csv", type=["xlsx", "xls", "csv"])
 
